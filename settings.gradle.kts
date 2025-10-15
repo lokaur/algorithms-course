@@ -1,6 +1,6 @@
 rootProject.name = "algorithms-course"
 
-include("1.graphs", "2.complexity")
+include("1.graphs", "2.complexity", "3.collection")
 
 dependencyResolutionManagement {
     repositories {
