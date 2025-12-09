@@ -7,7 +7,24 @@ public class Trie {
     private final Node root = new Node();
 
     public Boolean search(String word) {
-        return false; // TODO реализация поиска всего слова
+        // Берем корень дерева
+        Node node = root;
+
+        // Идем посимвольно
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+
+            // Выходим, если нужного элемента нет
+            if (!node.hasChild(c)) {
+                return false;
+            }
+
+            // Переходим на дочерний элемент
+            node = node.getChild(c);
+        }
+
+        // Если ключ является явным - искомое слово найдено
+        return node.isEvenKey;
     }
 
     public List<String> startWith(String prefix) {
@@ -21,11 +38,11 @@ public class Trie {
         // Идем посимвольно
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
-            // Если ребенка нет - создаем
+            // Если нет дочернего элемента - создаем
             if (!node.hasChild(c)) {
                 node.addChild(c);
             }
-            // Переходим на ребенка
+            // Переходим на дочерний элемент
             node = node.getChild(c);
         }
 
