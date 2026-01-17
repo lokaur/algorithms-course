@@ -70,12 +70,12 @@ public class Main {
     );
 
     static void main(String[] args) {
-        Handler chain = new CheckStockHandler()
-                .setNext(new CheckBalanceHandler())
+        Handler chain = new CheckStockHandler();
+        chain.setNext(new CheckBalanceHandler())
                 .setNext(new CheckFraudHandler());
 
-        try {
-            for (Order order : orders) {
+        for (Order order : orders) {
+            try {
                 System.out.println("===== Проверка заказа =====");
                 chain.handle(order);
 
@@ -94,11 +94,9 @@ public class Main {
                 OrderProcessor processor = new DigitalOrderProcessor();
                 processor.processOrder(order);
                 System.out.println();
+            } catch (RuntimeException e) {
+                System.out.println("При обработке заказа произошла ошибка\n");
             }
-        } catch (RuntimeException e) {
-            System.out.println("При обработке заказа произошла ошибка");
         }
-
-
     }
 }

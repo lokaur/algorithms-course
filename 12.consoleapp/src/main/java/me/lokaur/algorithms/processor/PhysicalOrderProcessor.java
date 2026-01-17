@@ -13,7 +13,7 @@ public class PhysicalOrderProcessor extends OrderProcessor {
 
     @Override
     protected void calculatePrice(Order order) {
-        System.out.println("Цена товара + цена доставки");
+        System.out.println("Цена: товар + доставка");
     }
 
     @Override

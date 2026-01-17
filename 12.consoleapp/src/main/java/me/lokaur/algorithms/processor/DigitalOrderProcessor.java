@@ -13,7 +13,7 @@ public class DigitalOrderProcessor extends OrderProcessor {
 
     @Override
     protected void calculatePrice(Order order) {
-        System.out.println("Только цена товара");
+        System.out.println("Цена: товар");
     }
 
     @Override

@@ -8,6 +8,7 @@ public abstract class OrderProcessor {
         validate(order);
         calculatePrice(order);
         pay(order);
+        notification(order);
     }
 
     protected abstract void validate(Order order);
